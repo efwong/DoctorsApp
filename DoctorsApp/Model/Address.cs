@@ -12,7 +12,7 @@ namespace DoctorsApp.Model
             Street = street;
             City = city;
             StateCode = stateCode;
-            Zip = Zip;
+            Zip = zip;
         }
 
         public string Street { get; set; }

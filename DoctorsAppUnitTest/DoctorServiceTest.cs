@@ -58,6 +58,37 @@ namespace DoctorsAppUnitTest
         }
 
         /// <summary>
+        /// Given a doctor, return a list of doctors in descending order based on the average review score
+        /// </summary>
+        [TestMethod]
+        public void GetSimilarDoctors_ReturnsListOfDoctorsInDescendingOrderBasedOnAverageReview()
+        {
+            var doctor = GetDefaultDoctor();
+            var expectedDoctorList = GenerateDoctorsWithDifferentAverageReviewScores(true);
+            mock.Setup(x => x.Get()).Returns(GenerateDoctorsWithDifferentAverageReviewScores());
+            var doctors = doctorService.GetSimilarDoctors(doctor).ToList();
+            
+            Assert.IsTrue(doctors != null && doctors.Count() > 0);
+            Assert.AreEqual(expectedDoctorList.Count(), doctors.Count());
+
+            bool result = false;
+            for (int i = 0; i < expectedDoctorList.Count(); i++)
+            {
+                bool currentResult = (expectedDoctorList[i].Id == doctors[i].Id);
+                if (i == 0)
+                {
+                    result = currentResult;
+                }
+                else
+                {
+                    result &= currentResult;
+                }
+            }
+
+            Assert.IsTrue(result, "GetSimilarDoctors returned doctors in incorrect order");
+        }
+
+        /// <summary>
         /// If Doctors have everything similar except Specialty, return the doctor with with a matching specialty
         /// </summary>
         [TestMethod]
@@ -164,7 +195,6 @@ namespace DoctorsAppUnitTest
             Assert.IsFalse(hasNonMatchingDoctors, "GetSimilarDoctors returned a doctor with a mismatched city");
         }
 
-
         #region Doctor Generators
 
         /// <summary>
@@ -199,15 +229,30 @@ namespace DoctorsAppUnitTest
 
         /// <summary>
         /// Returns a list of doctors with different average review scores
+        /// <getResult>
+        ///     True => return expected doctors list after filtering
+        ///     False => return mocked doctors list before filtering
+        /// </getResult>
         /// </summary>
-        private List<Doctor> GenerateDoctorsWithDifferentAverageReviewScores()
+        private List<Doctor> GenerateDoctorsWithDifferentAverageReviewScores(bool getResult=false)
         {
-            return new List<Doctor>(){
-                new Doctor(1234, "Dan Dee", "Internal Medicine", "Kaiser", true, 5134, false, 6.0, new Address("123 Main St", "San Francisco", "CA", 93413)),
-                new Doctor(1235, "Adam Adam", "Internal Medicine", "Kaiser", true, 5134, false, 6.01, new Address("123 Main St", "San Francisco", "CA", 93413)),
-                new Doctor(1236, "Ben Ben", "Internal Medicine", "Kaiser", true, 5134, false, 9.0, new Address("123 Main St", "San Francisco", "CA", 93413)),
-                new Doctor(1237, "Jesse Jesse", "Internal Medicine", "Kaiser", true, 5134, false, 5.5, new Address("123 Main St", "San Francisco", "CA", 93413))
-            };
+            if (!getResult)
+            {
+                return new List<Doctor>(){
+                    new Doctor(1234, "Dan Dee", "Internal Medicine", "Kaiser", true, 5134, false, 6.0, new Address("123 Main St", "San Francisco", "CA", 93413)),
+                    new Doctor(1235, "Jesse Jesse", "Internal Medicine", "Kaiser", true, 5134, false, 5.5, new Address("123 Main St", "San Francisco", "CA", 93413)),
+                    new Doctor(1236, "Clara Clara", "Internal Medicine", "Kaiser", true, 5134, false, 8.0, new Address("123 Main St", "San Francisco", "CA", 93413)),
+                    new Doctor(1237, "Adam Adam", "Internal Medicine", "Kaiser", true, 5134, false, 6.01, new Address("123 Main St", "San Francisco", "CA", 93413)),
+                    new Doctor(1238, "Ben Ben", "Internal Medicine", "Kaiser", true, 5134, false, 9.0, new Address("123 Main St", "San Francisco", "CA", 93413))
+                };
+            }else{
+                return new List<Doctor>(){                    
+                    new Doctor(1238, "Ben Ben", "Internal Medicine", "Kaiser", true, 5134, false, 9.0, new Address("123 Main St", "San Francisco", "CA", 93413)),
+                    new Doctor(1236, "Clara Clara", "Internal Medicine", "Kaiser", true, 5134, false, 8.0, new Address("123 Main St", "San Francisco", "CA", 93413)),
+                    new Doctor(1237, "Adam Adam", "Internal Medicine", "Kaiser", true, 5134, false, 6.01, new Address("123 Main St", "San Francisco", "CA", 93413)),
+                    new Doctor(1234, "Dan Dee", "Internal Medicine", "Kaiser", true, 5134, false, 6.0, new Address("123 Main St", "San Francisco", "CA", 93413))
+                };
+            }
         }
 
         /// <summary>

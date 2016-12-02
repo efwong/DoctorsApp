@@ -43,9 +43,8 @@ namespace DoctorsApp.Model
 
         /// <summary>
         /// Id of the medical group/network that the doctor is a part of.
-        /// Not all doctors have medical groups.
         /// </summary>
-        public int? MedicalGroupId { get; set; }
+        public int MedicalGroupId { get; set; }
 
         /// <summary>
         /// True -> The doctor accepts medicaid
@@ -57,9 +56,7 @@ namespace DoctorsApp.Model
         /// Average Review Score
         /// </summary>
         public double AverageReviewScore { get; set; }
-
-        public string PhoneNumber { get; set; }
-
+        
         /// <summary>
         /// Doctor's address
         /// All Doctors must have addresses

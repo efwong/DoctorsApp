@@ -3,6 +3,16 @@ by Edwin Wong
 for Practice Fusion Coding Challenge
 Find similar doctors in a prioritized order
 
+# Installation
+To install additional packages, please:
+
+With Visual Studio
+* Tools > NuGet Package Manager > Package Manager Console
+* In Console Enter: Update-Package
+
+With nuget.exe
+* Run: nuget update Doctors.sln
+
 # Similar Doctors
 I'll assume "similar" doctors are defined as doctors who have the same specialty, medical group, located in the same city, have an average review greater or equal than the given doctor, and a matching medicaid status.
 

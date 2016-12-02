@@ -4,9 +4,12 @@ for Practice Fusion Coding Challenge
 Find similar doctors in a prioritized order
 
 # Similar Doctors
-I'll assume "similar" doctors are defined as doctors who have the same specialty, medical group, located in the same city, and have an average review greater or equal than the given doctor.
+I'll assume "similar" doctors are defined as doctors who have the same specialty, medical group, located in the same city, have an average review greater or equal than the given doctor, and a matching medicaid status.
 
-If the selected doctor accepts medicaid, then all similar doctors must also accept medicaid; otherwise if the selected doctor does not accept medicaid, then all similar doctors can accept or reject medicaid.  Assuming the user submitted a search based on a doctor with medicaid, the user might also require medicaid; therefore the list of doctors returned should all accept medicaid.  I would not want a user who requires medicaid to accidentally visit a doctor who does not accept medicaid.
+If the selected doctor accepts medicaid, then all similar doctors must also accept medicaid; otherwise if the selected doctor does not accept medicaid, then all similar doctors can accept or reject medicaid.  
+
+Reasoning:
+Assuming the user submitted a search based on a doctor with medicaid, the user might also require medicaid; therefore the list of doctors returned should all accept medicaid.  I would not want a user who requires medicaid to accidentally visit a doctor who doesn't accept medicaid.
 
 
 # Returned Doctors Ordering
@@ -19,8 +22,8 @@ When the list of doctors is returned, the ordering will be based on the average 
 Contains the business logic for the Doctor searching algorithm.
 
 GetSimilarDoctors: Will return a list of similar doctors when given a doctor as input.
-Input: Doctor
-Return: A list of doctors
+* Input: Doctor
+* Return: A list of doctors
 
 ## IRepository
 Interface for a generic repository. I did not implement a concrete doctor repository because it is outside the scope of the project.

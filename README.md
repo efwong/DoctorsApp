@@ -6,11 +6,11 @@ Find similar doctors in a prioritized order
 # Installation
 To complete installation, please run either:
 
-## With Visual Studio
+###  With Visual Studio
 * Tools > NuGet Package Manager > Package Manager Console
 * In Console Enter: Update-Package
 
-## With nuget.exe
+### With nuget.exe
 * Run: nuget update Doctors.sln
 
 # Similar Doctors

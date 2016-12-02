@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="DoctorServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DoctorModelUnitTest.cs" />
+    <Compile Include="AddressModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,0 +1,11 @@
+E:\Development\DoctorsApp\DoctorsAppUnitTest\obj\Debug\DoctorsAppUnitTest.csprojResolveAssemblyReference.cache
+E:\Development\DoctorsApp\DoctorsAppUnitTest\bin\Debug\DoctorsAppUnitTest.dll
+E:\Development\DoctorsApp\DoctorsAppUnitTest\bin\Debug\DoctorsAppUnitTest.pdb
+E:\Development\DoctorsApp\DoctorsAppUnitTest\bin\Debug\Castle.Core.dll
+E:\Development\DoctorsApp\DoctorsAppUnitTest\bin\Debug\DoctorsApp.dll
+E:\Development\DoctorsApp\DoctorsAppUnitTest\bin\Debug\Moq.dll
+E:\Development\DoctorsApp\DoctorsAppUnitTest\bin\Debug\DoctorsApp.pdb
+E:\Development\DoctorsApp\DoctorsAppUnitTest\bin\Debug\Castle.Core.xml
+E:\Development\DoctorsApp\DoctorsAppUnitTest\bin\Debug\Moq.xml
+E:\Development\DoctorsApp\DoctorsAppUnitTest\obj\Debug\DoctorsAppUnitTest.dll
+E:\Development\DoctorsApp\DoctorsAppUnitTest\obj\Debug\DoctorsAppUnitTest.pdb

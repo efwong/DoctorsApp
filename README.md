@@ -1,6 +1,8 @@
 # DoctorsApp
 by Edwin Wong
+
 for Practice Fusion Coding Challenge
+
 Find similar doctors in a prioritized order
 
 # Installation
